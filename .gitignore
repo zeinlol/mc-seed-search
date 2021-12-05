@@ -3,3 +3,4 @@ amidst/
 venv/
 logs/
 __pychache__/
+.idea

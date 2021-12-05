@@ -1,7 +1,6 @@
 from PIL import Image 
 import numpy as np
 import os.path as path
-import os
 import json
 import database
 from io import BytesIO
@@ -23,4 +22,4 @@ for world in database.World.select().where(database.World.image.is_null(True)):
     rgb = rgb.transpose((1, 0, 2))
     f = BytesIO()
     Image.fromarray(rgb).save(f, format="png")
-    database.World.update(image = f.getvalue()).where(database.World.seed == world.seed).execute()
+    database.World.update(image=f.getvalue()).where(database.World.seed == world.seed).execute()
